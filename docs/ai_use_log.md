@@ -1,20 +1,21 @@
-# AI-use disclosure
+# AI Use Log
 
-## AI tool
-OpenAI Codex / ChatGPT-assisted workflow.
+## Tool
 
-## Tasks assisted by AI
-The user supplied a detailed assignment specification. Codex performed project scaffolding, official-source retrieval, Python audit and bootstrap implementation, notebook construction and execution, figure generation, documentation drafting, PDF creation, Git preparation and programmatic QA.
+OpenAI Codex / ChatGPT.
 
-## Accepted suggestions
-The implemented design follows the supplied research question and data source, immutable SHA-256 pinning, date-hour duplicate checks, deterministic target-leakage identification and the conceptual supply-constraint counterexample. These were task instructions, not fabricated user interactions.
+## Used for
 
-## Rejected / modified suggestions
-No human acceptance or rejection beyond the initial request is documented. During implementation Codex modified the suggested bootstrap approach to use seven-day blocks instead of independent hourly resampling, withheld intervals in sparsely supported cells, avoided selecting one of the conflicting temperature normalizations, and treated weekday mapping as empirically verified rather than documented. A broad sentinel scan initially flagged legitimate instant=9999; contextual inspection rejected that flag and removed positive 9999 from the candidate list without changing raw data. These are Codex implementation decisions, not claimed human judgments. Network package installation attempts were interrupted after prolonged delays. Existing analysis packages and a workspace-only copy of bundled ReportLab were used for this run; no successful installation is asserted.
+- Organizing the project and simplifying it to the course requirements.
+- Writing and checking pandas and matplotlib code.
+- Improving the report, explanations, and figures.
 
-## Independent verification
-Here independent means results recomputed or checked against source bytes/documentation, not a second human reviewer. Code verifies official UCI DOI/license and raw SHA-256, date/calendar consistency, cnt identity and daily/hourly totals; fresh-kernel notebook reruns and artifact validation are performed by run_all.py. The accompanying results/qa_validation.json and docs/qa_review.md distinguish programmatic checks from Codex visual/text review. No unperformed manual or instructor review is asserted. The student must inspect and accept the submitted work under their course policy.
+## Verification
 
-## GitHub publication continuation
+The notebook was rerun from top to bottom in a fresh kernel. The main values were checked against the raw CSV with a separate calculation. The hourly file's SHA-256 was checked, and the file was not edited. Source, DOI, and license information were checked against UCI; the supplied README was used for column definitions and dataset origin.
 
-The user explicitly requested repository creation and push, selected public visibility, and completed GitHub CLI authorization. The authenticated CLI account is the owner recorded in repository.json. The real repository URL was verified with GitHub CLI and persisted so notebook reruns retain it in the submission text. Authentication files and tokens are outside the project and are not submission artifacts.
+These checks were performed through Codex using code and document inspection. They do not claim personal manual verification by the student or review by an instructor. The PDF and saved notebook outputs were inspected for readability.
+
+## Decisions and limitations
+
+The user requested a simpler course assignment. The final analysis uses basic quality checks, descriptive statistics, and three figures. Code and text were reviewed against actual outputs before inclusion. No prediction model was trained and no causal result is claimed. The student should read the final work and follow the course's AI disclosure rules.

@@ -1,12 +1,2 @@
-* text=auto
-*.py text eol=lf
-*.md text eol=lf
-*.json text eol=lf
-*.csv text eol=lf
-*.txt text eol=lf
-*.yml text eol=lf
-*.ipynb text eol=lf
-*.pdf binary
-*.png binary
-*.zip binary
 data/raw/* binary
+*.pdf binary

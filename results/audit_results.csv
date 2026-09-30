@@ -1,100 +1,19 @@
-check_category,check_name,variable,expected,observed,status,notes,invalid_row_count
-schema,shape,all,hourly observations x documented fields,"[17379, 17]",PASS,,0
-schema,columns,all,"['instant', 'dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']","['instant', 'dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']",PASS,,0
-schema,unexpected_columns,all,[],[],PASS,,0
-schema,missing_columns,all,[],[],PASS,,0
-schema,dictionary_alignment,all,same variables and actual pandas dtypes,17,PASS,,0
-schema,dtype,instant,integer,int64,PASS,,0
-range,instant,instant,finite positive integer,17379 valid; 0 invalid,PASS,,0
-schema,dtype,dteday,string,object,PASS,,0
-range,date_period,dteday,dteday parseable and in documented 2011-2012 period,17379 valid; 0 invalid,PASS,,0
-schema,dtype,season,integer,int64,PASS,,0
-range,season,season,"in [1, 2, 3, 4]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,yr,integer,int64,PASS,,0
-range,yr,yr,"in [0, 1]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,mnth,integer,int64,PASS,,0
-range,mnth,mnth,"in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,hr,integer,int64,PASS,,0
-range,hr,hr,"in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,holiday,integer,int64,PASS,,0
-range,holiday,holiday,"in [0, 1]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,weekday,integer,int64,PASS,,0
-range,weekday,weekday,"in [0, 1, 2, 3, 4, 5, 6]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,workingday,integer,int64,PASS,,0
-range,workingday,workingday,"in [0, 1]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,weathersit,integer,int64,PASS,,0
-range,weathersit,weathersit,"in [1, 2, 3, 4]; integer",17379 valid; 0 invalid,PASS,,0
-schema,dtype,temp,float,float64,PASS,,0
-range,temp,temp,finite and 0 <= value <= 1,17379 valid; 0 invalid,PASS,Normalized scale; no unverified physical conversion.,0
-schema,dtype,atemp,float,float64,PASS,,0
-range,atemp,atemp,finite and 0 <= value <= 1,17379 valid; 0 invalid,PASS,Normalized scale; no unverified physical conversion.,0
-schema,dtype,hum,float,float64,PASS,,0
-range,hum,hum,finite and 0 <= value <= 1,17379 valid; 0 invalid,PASS,Normalized scale; no unverified physical conversion.,0
-schema,dtype,windspeed,float,float64,PASS,,0
-range,windspeed,windspeed,finite and 0 <= value <= 1,17379 valid; 0 invalid,PASS,Normalized scale; no unverified physical conversion.,0
-schema,dtype,casual,integer,int64,PASS,,0
-range,casual,casual,finite nonnegative integer,17379 valid; 0 invalid,PASS,,0
-schema,dtype,registered,integer,int64,PASS,,0
-range,registered,registered,finite nonnegative integer,17379 valid; 0 invalid,PASS,,0
-schema,dtype,cnt,integer,int64,PASS,,0
-range,cnt,cnt,finite nonnegative integer,17379 valid; 0 invalid,PASS,,0
-missingness,nulls,instant,0,0,PASS,,0
-missingness,blank_or_sentinel,instant,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,dteday,0,0,PASS,,0
-missingness,blank_or_sentinel,dteday,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,season,0,0,PASS,,0
-missingness,blank_or_sentinel,season,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,yr,0,0,PASS,,0
-missingness,blank_or_sentinel,yr,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,mnth,0,0,PASS,,0
-missingness,blank_or_sentinel,mnth,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,hr,0,0,PASS,,0
-missingness,blank_or_sentinel,hr,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,holiday,0,0,PASS,,0
-missingness,blank_or_sentinel,holiday,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,weekday,0,0,PASS,,0
-missingness,blank_or_sentinel,weekday,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,workingday,0,0,PASS,,0
-missingness,blank_or_sentinel,workingday,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,weathersit,0,0,PASS,,0
-missingness,blank_or_sentinel,weathersit,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,temp,0,0,PASS,,0
-missingness,blank_or_sentinel,temp,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,atemp,0,0,PASS,,0
-missingness,blank_or_sentinel,atemp,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,hum,0,0,PASS,,0
-missingness,blank_or_sentinel,hum,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,windspeed,0,0,PASS,,0
-missingness,blank_or_sentinel,windspeed,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,casual,0,0,PASS,,0
-missingness,blank_or_sentinel,casual,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,registered,0,0,PASS,,0
-missingness,blank_or_sentinel,registered,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,nulls,cnt,0,0,PASS,,0
-missingness,blank_or_sentinel,cnt,no blank or predefined textual/negative sentinel codes,0,PASS,"Heuristic only: positive 9999 is a legitimate record index, not a missing code; valid zeros are examined as anomalies.",0
-missingness,date_parse,dteday,all dates parse,17379 valid; 0 invalid,PASS,,0
-duplicates,exact_rows,all,0 repeated rows after first,0,PASS,,0
-duplicates,system_hour_key,dteday+hr,0 repeated rows after first,0,PASS,,0
-duplicates,index_key,instant,0 repeated rows after first,0,PASS,,0
-consistency,cnt_identity,cnt,cnt == casual + registered,17379 valid; 0 invalid,PASS,,0
-consistency,month_identity,mnth,mnth == parsed calendar month,17379 valid; 0 invalid,PASS,,0
-consistency,year_identity,yr,yr == parsed year - 2011,17379 valid; 0 invalid,PASS,,0
-consistency,weekday_empirical,weekday,empirical candidate (Monday=0 + 1) mod 7,17379 valid; 0 invalid,PASS,"Neither official document specifies mapping; all seven offsets tested. Empirical consistency, not independently documented encoding.",0
-consistency,workingday_identity,workingday,weekday Mon-Fri and holiday=0 -> 1,17379 valid; 0 invalid,PASS,,0
-consistency,index_sequence,instant,observed sequence 1..N,17379 valid; 0 invalid,PASS,"Empirical sequence expectation, not a source-specified maximum.",0
-consistency,day_hour_counts,"casual,registered,cnt",hour sums equal daily counts on every date,0,PASS,,0
-coverage,nominal_hour_grid,dteday+hr,inspect 24 labeled hours per date,17544 nominal; 165 absent,WARN,Nominal clock grid only; timezone/DST and omission mechanism undocumented. Do not insert zero counts.,0
-provenance,official_row_count_conflict,rows,compare pinned CSV with official page,CSV=17379; current UCI page=17389,WARN,Archive README count matches CSV; analysis uses actual bytes.,0
-provenance,definition_conflict,"season,temp,atemp",reconcile archive README and current page,season labels and temperature normalization disagree,WARN,Use numeric season codes and normalized temperatures.,0
-leakage,deterministic_target_components,"casual,registered",exclude when predicting cnt,identity holds on 17379/17379 rows,DETECTED,Outcome components reveal target; leakage is not a corrupted-data range failure.,0
-leakage,temporal_split,"dteday,instant",future-facing evaluation uses chronological split,not trained; dates parsed and ordered,REVIEWED,Random splits permit future-period information. Fit preprocessing only within training period; exclude record index.,0
-leakage,post_outcome_availability,"weather,temp,atemp,hum,windspeed",available at forecast origin,feature publication timestamps not supplied,UNVERIFIABLE,Same-hour realized weather may be unavailable for advance forecasts; no claim of forecast readiness.,0
-leakage,predictor_review,all,calendar/weather candidates; no target or components,"exclude cnt,casual,registered,instant",REVIEWED,Other deterministic outcome leakage not found in remaining definitions; timing cannot be verified.,0
-anomaly,iqr_flag,cnt,"outside [-321.5000,642.5000]",505,FLAG,Statistical flag; preserve all rows.,505
-anomaly,iqr_flag,casual,"outside [-62.0000,114.0000]",1192,FLAG,Statistical flag; preserve all rows.,1192
-anomaly,iqr_flag,registered,"outside [-245.0000,499.0000]",680,FLAG,Statistical flag; preserve all rows.,680
-anomaly,iqr_flag,temp,"outside [-0.1400,1.1400]",0,PASS,Statistical flag; preserve all rows.,0
-anomaly,iqr_flag,atemp,"outside [-0.0985,1.0530]",0,PASS,Statistical flag; preserve all rows.,0
-anomaly,iqr_flag,hum,"outside [0.0300,1.2300]",22,FLAG,Statistical flag; preserve all rows.,22
-anomaly,iqr_flag,windspeed,"outside [-0.1193,0.4775]",342,FLAG,Statistical flag; preserve all rows.,342
-anomaly,humidity_zero,hum,inspect valid boundary values,22,WARN,Zero humidity is unusual but not documented as missing; retain and compare sensitivity.,0
+check,result
+schema columns match,True
+schema types match,True
+missing cells,0
+exact duplicates,0
+duplicate date-hour keys,0
+invalid hr values,0
+invalid mnth values,0
+invalid season values,0
+invalid weathersit values,0
+invalid workingday values,0
+invalid holiday values,0
+invalid hum values,0
+invalid temp values,0
+invalid atemp values,0
+invalid windspeed values,0
+negative cnt values,0
+cnt identity failures,0
+date/month mismatches,0
