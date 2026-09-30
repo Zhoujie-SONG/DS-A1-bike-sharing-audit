@@ -1,0 +1,41 @@
+{
+  "dataset_name": "Bike Sharing",
+  "creator": "Hadi Fanaee-T",
+  "repository": "UCI Machine Learning Repository",
+  "doi": "10.24432/C5W894",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "official_page_url": "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset",
+  "resolved_page_url": "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset",
+  "download_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip",
+  "resolved_download_url": "https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip",
+  "download_datetime_utc": "2026-09-30T02:16:41.598381+00:00",
+  "download_date_asia_singapore": "2026-09-30",
+  "http_last_modified": null,
+  "version_policy": "No official semantic version; pin downloaded ZIP and extracted bytes with SHA-256.",
+  "observation_start": "2011-01-01",
+  "observation_end": "2012-12-31",
+  "doi_license_verification": "Checked DOI text and official CC BY 4.0 link in saved UCI HTML.",
+  "files": {
+    "hour.csv": {
+      "size_bytes": 1156736,
+      "sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f"
+    },
+    "day.csv": {
+      "size_bytes": 57569,
+      "sha256": "a6bcf826782d3c0fbfdcbeead17cd0884185a0dafe8ff10cd48a874ee7ba18be"
+    },
+    "Readme.txt": {
+      "size_bytes": 5607,
+      "sha256": "b92c8628622948bf0828c43a1b315d1517c3d7fd63654730d0dea379b8e88175"
+    },
+    "Bike-Sharing-Dataset.zip": {
+      "size_bytes": 279992,
+      "sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401"
+    },
+    "uci_official_page.html": {
+      "size_bytes": 157041,
+      "sha256": "25386f08f920472c16f8973d5c51e390abf546d42c3e9cc3c82cb497311eecdb"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+This project asks how hourly bike rental volume varies with weather conditions, working-day status, and hour of day in the 2011-2012 Capital Bikeshare data. It uses the official UCI Bike Sharing archive, with DOI and CC BY 4.0 verified against the official webpage and raw files pinned by SHA-256.
+
+The executed hourly file contains 17,379 rows and 17 columns. The audit found 0 missing cells, 0 exact duplicates, 0 duplicate date-hour keys, 0 failed range checks and 0 internal consistency failures. However, 165 nominal hourly labels are absent, and official webpage metadata conflict with the archive on row count and some definitions. These issues are documented rather than hidden.
+
+Mean hourly rentals are 204.87 in clear/few-cloud weather and 111.58 in light-rain/snow weather. Working-day and non-working-day hourly profiles differ; these are observational associations. Seven-day block bootstrap intervals assess temporal resampling stability, with sparse cells explicitly restricted.
+
+The identity cnt = casual + registered holds on every row. Therefore both components must be excluded when predicting cnt because they deterministically reveal the target. Completed rentals also do not measure all latent demand: unavailable bikes or docks could restrict observed rentals. The files do not establish that these mechanisms actually occurred. The data support historical descriptive analysis of observed system-hours, with no weather causal claim or generalization to current or other systems.
+
+GitHub URL: <INSERT_STABLE_GITHUB_REPOSITORY_URL>

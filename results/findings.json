@@ -1,0 +1,110 @@
+{
+  "summary": {
+    "row_count": 17379,
+    "column_count": 17,
+    "day_row_count": 731,
+    "missing_cells": 0,
+    "exact_duplicates": 0,
+    "semantic_duplicates": 0,
+    "range_check_failures": 0,
+    "range_invalid_rows_total": 0,
+    "cnt_identity_satisfied": 17379,
+    "cnt_identity_failures": 0,
+    "internal_consistency_failures": 0,
+    "target_leakage_detected": true,
+    "nominal_hours": 17544,
+    "absent_nominal_hours": 165,
+    "observed_days": 731,
+    "zero_counts": {
+      "cnt": 0,
+      "casual": 1581,
+      "registered": 24,
+      "temp": 0,
+      "atemp": 2,
+      "hum": 22,
+      "windspeed": 2180
+    },
+    "weekday_mapping_evidence": {
+      "0": 17379,
+      "1": 0,
+      "2": 17379,
+      "3": 17379,
+      "4": 17379,
+      "5": 17379,
+      "6": 17379
+    },
+    "source_document_conflicts": [
+      "row count",
+      "season labels",
+      "temp/atemp normalization"
+    ],
+    "retained_rows": 17379,
+    "audit_check_count": 99
+  },
+  "overall_mean": 189.46308763450142,
+  "weather": [
+    {
+      "weathersit": 1,
+      "n": 11413,
+      "n_days": 700,
+      "mean": 204.8692718829405,
+      "median": 159.0,
+      "sd": 189.48777342363275,
+      "ci_low": 189.81133752805954,
+      "ci_high": 219.07395196346428,
+      "ci_status": "available"
+    },
+    {
+      "weathersit": 2,
+      "n": 4544,
+      "n_days": 567,
+      "mean": 175.16549295774647,
+      "median": 133.0,
+      "sd": 165.43158927677524,
+      "ci_low": 160.7264902665403,
+      "ci_high": 190.01228298775007,
+      "ci_status": "available"
+    },
+    {
+      "weathersit": 3,
+      "n": 1419,
+      "n_days": 300,
+      "mean": 111.57928118393235,
+      "median": 63.0,
+      "sd": 133.78104501327016,
+      "ci_low": 97.6089403720057,
+      "ci_high": 127.19421080003467,
+      "ci_status": "available"
+    },
+    {
+      "weathersit": 4,
+      "n": 3,
+      "n_days": 3,
+      "mean": 74.33333333333333,
+      "median": 36.0,
+      "sd": 77.92517778826901,
+      "ci_low": null,
+      "ci_high": null,
+      "ci_status": "withheld: fewer than 10 observed days"
+    }
+  ],
+  "workingday_difference": {
+    "contrast": "workingday=1 minus workingday=0",
+    "mean_difference": 11.802422015538411,
+    "ci_low": 3.375646530389809,
+    "ci_high": 19.908840808202353,
+    "bootstrap_draws": 2000,
+    "block_days": 7
+  },
+  "peaks": {
+    "0": {
+      "hr": 13,
+      "mean": 372.73160173160176
+    },
+    "1": {
+      "hr": 17,
+      "mean": 525.2905811623247
+    }
+  },
+  "weather_count_zero_humidity_excluded": 17357
+}

@@ -1,0 +1,8 @@
+{
+  "contrast": "workingday=1 minus workingday=0",
+  "mean_difference": 11.802422015538411,
+  "ci_low": 3.375646530389809,
+  "ci_high": 19.908840808202353,
+  "bootstrap_draws": 2000,
+  "block_days": 7
+}

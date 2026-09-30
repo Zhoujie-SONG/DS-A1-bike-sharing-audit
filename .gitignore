@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.jupyter/
+work/
+tmp/
+*.log
+.env
+credentials*
+notebooks/*.html

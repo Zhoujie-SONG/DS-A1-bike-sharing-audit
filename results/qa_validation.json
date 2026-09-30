@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "completed_utc": "2026-09-30T02:41:56.168289+00:00",
+  "required_files_checked": 26,
+  "fresh_kernel_execution": "PASS",
+  "executed_code_cells": 21,
+  "notebook_embedded_images": 8,
+  "source_hashes": "PASS",
+  "independent_statistics": "PASS",
+  "narrative_consistency": "PASS",
+  "pdf_pages": 10,
+  "pdf_size_bytes": 807546,
+  "figure_count": 8,
+  "summary_word_count": 222,
+  "unfinished_marker_hits": [],
+  "claim_review_hits": [
+    {
+      "file": "README.md",
+      "line": 60,
+      "text": "We must not claim that weather conditions causally determine bike rental demand based on this observational dataset: no intervention, random assignment or causal adjustment is supplied. We must not generalize the observed relationships to all cities, all bike-sharing systems, or current populations: geographic and temporal transportability is untested. Observed rental counts should not be interpreted as a perfect measurement of unconstrained latent demand: supply constraints are unmeasured."
+    },
+    {
+      "file": "notebook",
+      "text": "Counts refer to recorded system-hours. Calendar parsing is reliable; weekday encoding must be investigated because official definitions omit its mapping. The nominal 24-hour grid is an audit device rather than a timezone-resolved exposure measure. Bootstrap intervals require approximate temporal-resampling assumptions, not random sampling from all cities."
+    },
+    {
+      "file": "notebook",
+      "text": "We must not generalize the observed relationships to all cities, all bike-sharing systems, or current populations. The sample is historical and system-specific."
+    },
+    {
+      "file": "PDF",
+      "text": "We must not generalize the observed relationships to all cities, all bike-sharing systems, or current"
+    }
+  ],
+  "allowed_repository_url_token": "<INSERT_STABLE_GITHUB_REPOSITORY_URL>",
+  "visual_review": "See docs/qa_review.md; not inferred from programmatic pass."
+}

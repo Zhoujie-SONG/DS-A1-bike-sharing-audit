@@ -1,0 +1,18 @@
+variable,description,dtype,role,valid_range_or_categories,units,source_definition,audit_notes
+instant,Record index,int64,ID,positive integer,index,Readme: record index,Not a predictor; sequential uniqueness is additionally checked.
+dteday,Observation date,object,key,2011-01-01 to 2012-12-31,calendar date,Readme: date,No timezone or daylight-saving convention documented.
+season,Season code,int64,feature,"1,2,3,4",category,"Readme: 1:springer, 2:summer, 3:fall, 4:winter","Current UCI page instead says 1:winter,2:spring,3:summer,4:fall; retain numeric codes."
+yr,Year code,int64,feature,"0,1",category,"Readme: 0:2011,1:2012",
+mnth,Month,int64,feature,1 to 12 integer,calendar month,Readme: month (1 to 12),
+hr,Hour of day,int64,key/feature,0 to 23 integer,clock hour,Readme: hour (0 to 23),Natural key candidate: dteday + hr.
+holiday,Holiday indicator,int64,feature,"0,1",binary,Readme: holiday status from DC holiday schedule,Historical external holiday schedule not independently reconstructed.
+weekday,Day-of-week code,int64,feature,0 to 6 integer,category,Readme/UCI: day of the week; numeric mapping unspecified,Sunday=0 is verified empirically against parsed dates; not asserted as a documented mapping.
+workingday,Neither weekend nor holiday,int64,feature,"0,1",binary,Readme: 1 if neither weekend nor holiday; else 0,"Calendar-based consistency uses parsed dates, independent of weekday encoding."
+weathersit,Weather situation,int64,feature,"1,2,3,4",category,Readme: 1 clear/few clouds; 2 mist/cloudy; 3 light snow/rain; 4 heavy rain/ice pellets/thunderstorm/mist or snow/fog,Composite categories; severity-4 inference withheld for insufficient support.
+temp,Normalized temperature,float64,feature,0 to 1 inclusive,normalized,Readme: Celsius divided by 41; current UCI: (t+8)/47,Conflicting normalizations; no Celsius conversion in analysis.
+atemp,Normalized feeling temperature,float64,feature,0 to 1 inclusive,normalized,Readme: Celsius divided by 50; current UCI: (t+16)/66,Conflicting normalizations; no Celsius conversion in analysis.
+hum,Normalized humidity,float64,feature,0 to 1 inclusive,fraction,Readme: humidity divided by 100,"Zero is within documented range; flag as possibly unusual, not established missing code."
+windspeed,Normalized wind speed,float64,feature,0 to 1 inclusive,normalized,Readme: wind speed divided by 67,Physical unit of original wind speed not explicitly stated; zero may be calm/rounded.
+casual,Casual-user rental count,int64,target component,nonnegative integer; no documented upper cap,rentals/hour,Readme: count of casual users,Deterministic target leakage when predicting cnt.
+registered,Registered-user rental count,int64,target component,nonnegative integer; no documented upper cap,rentals/hour,Readme: count of registered users,Deterministic target leakage when predicting cnt.
+cnt,Total completed rental count,int64,target,nonnegative integer; no documented upper cap,rentals/hour,Readme: total rental bikes including casual and registered,"Proxy for realized use, not unconstrained latent demand."
