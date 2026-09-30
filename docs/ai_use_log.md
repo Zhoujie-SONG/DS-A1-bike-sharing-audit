@@ -14,3 +14,7 @@ No human acceptance or rejection beyond the initial request is documented. Durin
 
 ## Independent verification
 Here independent means results recomputed or checked against source bytes/documentation, not a second human reviewer. Code verifies official UCI DOI/license and raw SHA-256, date/calendar consistency, cnt identity and daily/hourly totals; fresh-kernel notebook reruns and artifact validation are performed by run_all.py. The accompanying results/qa_validation.json and docs/qa_review.md distinguish programmatic checks from Codex visual/text review. No unperformed manual or instructor review is asserted. The student must inspect and accept the submitted work under their course policy.
+
+## GitHub publication continuation
+
+The user explicitly requested repository creation and push, selected public visibility, and completed GitHub CLI authorization. The authenticated CLI account is the owner recorded in repository.json. The real repository URL was verified with GitHub CLI and persisted so notebook reruns retain it in the submission text. Authentication files and tokens are outside the project and are not submission artifacts.

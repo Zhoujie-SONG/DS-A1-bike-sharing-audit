@@ -6,4 +6,4 @@ Mean hourly rentals are 204.87 in clear/few-cloud weather and 111.58 in light-ra
 
 The identity cnt = casual + registered holds on every row. Therefore both components must be excluded when predicting cnt because they deterministically reveal the target. Completed rentals also do not measure all latent demand: unavailable bikes or docks could restrict observed rentals. The files do not establish that these mechanisms actually occurred. The data support historical descriptive analysis of observed system-hours, with no weather causal claim or generalization to current or other systems.
 
-GitHub URL: <INSERT_STABLE_GITHUB_REPOSITORY_URL>
+GitHub URL: https://github.com/Zhoujie-SONG/DS-A1-bike-sharing-audit

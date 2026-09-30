@@ -61,4 +61,4 @@ We must not claim that weather conditions causally determine bike rental demand 
 
 ## License / Attribution
 
-Original dataset CC BY 4.0 with creator and paper attribution above. This educational analysis and code are provided under MIT (LICENSE). Official-page snapshot is retained as verification evidence; it is not assigned a new license. Raw dataset bytes are never rewritten. GitHub URL is intentionally completed only after a stable repository is created.
+Original dataset CC BY 4.0 with creator and paper attribution above. This educational analysis and code are provided under MIT (LICENSE). Official-page snapshot is retained as verification evidence; it is not assigned a new license. Raw dataset bytes are never rewritten. The repository address is populated only after verified creation: https://github.com/Zhoujie-SONG/DS-A1-bike-sharing-audit.

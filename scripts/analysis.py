@@ -43,6 +43,15 @@ DEFINITIONS = {
 def save_json(path, obj):
     path.write_text(json.dumps(obj, indent=2, allow_nan=False) + '\n', encoding='utf-8')
 
+def repository_url():
+    """Use a verified creation receipt when available; otherwise retain the required token."""
+    receipt = ROOT / 'docs/repository.json'
+    if not receipt.exists():
+        return '<INSERT_STABLE_GITHUB_REPOSITORY_URL>'
+    url = json.loads(receipt.read_text(encoding='utf-8'))['url']
+    assert url.startswith('https://github.com/'), 'Unexpected repository host'
+    return url
+
 def load_data():
     from verify_data import verify
     meta = verify()
@@ -299,6 +308,7 @@ def narrative(f):
 
 def write_docs(df,meta,f):
     n=narrative(f);s=f['summary']
+    repo_url=repository_url()
     hash_table='\n'.join(f'| {name} | {r["size_bytes"]} | `{r["sha256"]}` |' for name,r in meta['files'].items())
     source=f'''Fanaee-T, H. (2013). Bike Sharing [Dataset]. UCI Machine Learning Repository. DOI: [10.24432/C5W894](https://doi.org/10.24432/C5W894). [Official page]({meta['official_page_url']}). CC BY 4.0: [license]({meta['license_url']}). The archived README additionally requests citation of Fanaee-T and Gama (2013), Event labeling combining ensemble detectors and background knowledge, DOI [10.1007/s13748-013-0040-3](https://doi.org/10.1007/s13748-013-0040-3).'''
     provenance=f'''# Dataset provenance
@@ -406,6 +416,9 @@ No human acceptance or rejection beyond the initial request is documented. Durin
 Here independent means results recomputed or checked against source bytes/documentation, not a second human reviewer. Code verifies official UCI DOI/license and raw SHA-256, date/calendar consistency, cnt identity and daily/hourly totals; fresh-kernel notebook reruns and artifact validation are performed by run_all.py. The accompanying results/qa_validation.json and docs/qa_review.md distinguish programmatic checks from Codex visual/text review. No unperformed manual or instructor review is asserted. The student must inspect and accept the submitted work under their course policy.
 '''
     (ROOT / 'docs/ai_use_log.md').write_text(ai,encoding='utf-8')
+    if (ROOT / 'docs/repository.json').exists():
+        with (ROOT / 'docs/ai_use_log.md').open('a',encoding='utf-8') as stream:
+            stream.write('\n## GitHub publication continuation\n\nThe user explicitly requested repository creation and push, selected public visibility, and completed GitHub CLI authorization. The authenticated CLI account is the owner recorded in repository.json. The real repository URL was verified with GitHub CLI and persisted so notebook reruns retain it in the submission text. Authentication files and tokens are outside the project and are not submission artifacts.\n')
     summary=f'''This project asks how hourly bike rental volume varies with weather conditions, working-day status, and hour of day in the 2011-2012 Capital Bikeshare data. It uses the official UCI Bike Sharing archive, with DOI and CC BY 4.0 verified against the official webpage and raw files pinned by SHA-256.
 
 The executed hourly file contains {s['row_count']:,} rows and {s['column_count']} columns. The audit found {s['missing_cells']} missing cells, {s['exact_duplicates']} exact duplicates, {s['semantic_duplicates']} duplicate date-hour keys, {s['range_check_failures']} failed range checks and {s['internal_consistency_failures']} internal consistency failures. However, {s['absent_nominal_hours']} nominal hourly labels are absent, and official webpage metadata conflict with the archive on row count and some definitions. These issues are documented rather than hidden.
@@ -414,7 +427,7 @@ Mean hourly rentals are {f['weather'][0]['mean']:.2f} in clear/few-cloud weather
 
 The identity cnt = casual + registered holds on every row. Therefore both components must be excluded when predicting cnt because they deterministically reveal the target. Completed rentals also do not measure all latent demand: unavailable bikes or docks could restrict observed rentals. The files do not establish that these mechanisms actually occurred. The data support historical descriptive analysis of observed system-hours, with no weather causal claim or generalization to current or other systems.
 
-GitHub URL: <INSERT_STABLE_GITHUB_REPOSITORY_URL>
+GitHub URL: {repo_url}
 '''
     assert 150<=len(summary.split())<=300,len(summary.split())
     (ROOT / 'reports/submission_summary.txt').write_text(summary,encoding='utf-8')
@@ -481,7 +494,7 @@ See docs/reproducibility.md for a virtual environment and standalone notebook co
 
 ## License / Attribution
 
-Original dataset CC BY 4.0 with creator and paper attribution above. This educational analysis and code are provided under MIT (LICENSE). Official-page snapshot is retained as verification evidence; it is not assigned a new license. Raw dataset bytes are never rewritten. GitHub URL is intentionally completed only after a stable repository is created.
+Original dataset CC BY 4.0 with creator and paper attribution above. This educational analysis and code are provided under MIT (LICENSE). Official-page snapshot is retained as verification evidence; it is not assigned a new license. Raw dataset bytes are never rewritten. The repository address is populated only after verified creation: {repo_url}.
 '''
     (ROOT / 'README.md').write_text(readme,encoding='utf-8')
     (ROOT / 'data/README.md').write_text('# Raw data policy\n\nOfficial UCI ZIP only. Exact source bytes are retained; no rows deleted or values filled. SHA-256 and sizes are in raw/source_metadata.json. Run `python scripts/verify_data.py` before analysis. Attribution and source conflicts: ../docs/provenance.md. Absent system-hours are not zero-imputed.\n',encoding='utf-8')

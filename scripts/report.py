@@ -115,7 +115,10 @@ def main():
     env=json.loads((ROOT/'results/runtime_environment.json').read_text(encoding='utf-8'))
     p('Executed on '+env['os']+', Python '+env['python']+'. Exact direct package versions are pinned in requirements.txt and environment.yml. The full pipeline verifies raw hashes, executes the notebook in a fresh kernel, generates this report and independently validates files, statistics and claims. Run from the project root:')
     p('python -m pip install -r requirements.txt','MonoAudit');p('python scripts/run_all.py','MonoAudit')
-    p('Final fresh-kernel rerun and verification are recorded in results/qa_validation.json. The pipeline exits nonzero on failure. All paths are project-relative; no private machine path is required by project source. PDF creation does not require a TeX installation. No publication or GitHub push is performed.')
+    p('Final fresh-kernel rerun and verification are recorded in results/qa_validation.json. The pipeline exits nonzero on failure. All paths are project-relative; no private machine path is required by project source. PDF creation does not require a TeX installation. Repository creation and push are separate from the analysis pipeline.')
+    from analysis import repository_url
+    if (ROOT/'docs/repository.json').exists():
+        p('Verified project repository: '+repository_url(),'CaptionAudit')
     page();h('AI use and source attribution')
     p('OpenAI Codex / ChatGPT-assisted workflow created the project, audit/statistical code, notebook, plots, report and documentation, then ran source/result checks. The user supplied the fixed specification. No instructor or second human review is claimed. Accepted instructions and Codex-modified implementation choices are disclosed in docs/ai_use_log.md. Programmatic checks and Codex visual review are separately identified in the QA record.')
     p('Key implementation decisions include time-block bootstrap instead of independent hourly resampling, interval withholding for sparse support, no unsupported Celsius conversions, and empirically labeled weekday mapping. The student must inspect the submitted work and follow their course disclosure policy.')
@@ -128,7 +131,7 @@ def main():
     p('README-requested paper attribution: Fanaee-T, H. and Gama, J. (2013). Event labeling combining ensemble detectors and background knowledge. Progress in Artificial Intelligence. https://doi.org/10.1007/s13748-013-0040-3 (bibliographic details reproduced from the official README; paper not independently analyzed).')
     sub('Companion evidence')
     p('Inspect the executed notebook, source_metadata.json, audit_results.csv, audit_summary.json, descriptive_statistics.csv, conditional_statistics.csv, statistical_method.json and raw-data dictionary. These preserve negative results, sparse-cell status and the actual dataset version rather than relying on this narrative alone.')
-    p('Submission text is provided separately in reports/submission_summary.txt. Its repository URL must be completed only after a stable repository exists. No repository address is invented.')
+    p('Submission text is provided separately in reports/submission_summary.txt. Its repository URL is populated from a verified creation receipt when available; no repository address is invented.')
     def footer(canvas,doc):
         canvas.saveState();canvas.setStrokeColor(colors.HexColor('#D7E0E8'));canvas.line(52,43,A4[0]-52,43);canvas.setFont('Helvetica',8);canvas.setFillColor(colors.HexColor('#657585'));canvas.drawString(52,29,'DS-A1 | UCI Bike Sharing | Observational measurement audit');canvas.drawRightString(A4[0]-52,29,str(doc.page));canvas.restoreState()
     pdf=ROOT/'reports/DS_A1_Bike_Sharing_Audit.pdf'

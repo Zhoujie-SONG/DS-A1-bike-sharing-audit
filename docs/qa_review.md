@@ -12,7 +12,7 @@ The saved notebook was rendered in a read-only local HTML viewer of its actual m
 
 The initial sentinel heuristic incorrectly flagged the legitimate record index 9999. The rule was narrowed to textual and impossible negative codes after inspecting its meaning. No source row was changed. Zero humidity remains a flagged measurement concern and is retained in the main analysis, with a separate sensitivity table.
 
-Claim-search matches were reviewed in context. The requested causal/generalization words appear in prohibited-claim explanations or negative scope statements, not affirmative universal or causal findings. No unverified special-event attribution, artificial zero counts, latent-demand measurements or optimized scheduling result is asserted. The 200/100 illustration is explicitly conceptual. The sole unresolved repository address token is `<INSERT_STABLE_GITHUB_REPOSITORY_URL>` in the submission summary, as requested. Other unfinished markers are absent from deliverable prose.
+Claim-search matches were reviewed in context. The requested causal/generalization words appear in prohibited-claim explanations or negative scope statements, not affirmative universal or causal findings. No unverified special-event attribution, artificial zero counts, latent-demand measurements or optimized scheduling result is asserted. The 200/100 illustration is explicitly conceptual. After the user authorized public GitHub publication, the repository was created and verified through GitHub CLI. The submission summary now uses the actual URL from docs/repository.json; no unresolved repository address remains. Other unfinished markers are absent from deliverable prose.
 
 ## Limitations of verification
 

@@ -69,6 +69,12 @@ def main():
             if pending.search(line):unfinished.append({'file':name,'text':line})
     assert not unfinished,unfinished
     expected_url='<INSERT_STABLE_GITHUB_REPOSITORY_URL>'
+    receipt=ROOT/'docs/repository.json'
+    if receipt.exists():
+        expected_url=json.loads(receipt.read_text(encoding='utf-8'))['url']
+        assert expected_url.startswith('https://github.com/')
+        assert expected_url in readme
+        assert '<INSERT_STABLE_GITHUB_REPOSITORY_URL>' not in summary
     assert expected_url in summary
     result=dict(status='PASS',completed_utc=dt.datetime.now(dt.timezone.utc).isoformat(),required_files_checked=len(REQUIRED),fresh_kernel_execution='PASS',executed_code_cells=len(cells),notebook_embedded_images=image_count,source_hashes='PASS',independent_statistics='PASS',narrative_consistency='PASS',pdf_pages=len(reader.pages),pdf_size_bytes=(ROOT/'reports/DS_A1_Bike_Sharing_Audit.pdf').stat().st_size,figure_count=len(figures),summary_word_count=len(summary.split()),unfinished_marker_hits=unfinished,claim_review_hits=claim_hits,allowed_repository_url_token=expected_url,visual_review='See docs/qa_review.md; not inferred from programmatic pass.')
     (ROOT/'results/qa_validation.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')

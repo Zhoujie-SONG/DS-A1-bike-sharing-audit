@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "completed_utc": "2026-09-30T02:41:56.168289+00:00",
+  "completed_utc": "2026-09-30T03:13:52.347786+00:00",
   "required_files_checked": 26,
   "fresh_kernel_execution": "PASS",
   "executed_code_cells": 21,
@@ -9,7 +9,7 @@
   "independent_statistics": "PASS",
   "narrative_consistency": "PASS",
   "pdf_pages": 10,
-  "pdf_size_bytes": 807546,
+  "pdf_size_bytes": 807674,
   "figure_count": 8,
   "summary_word_count": 222,
   "unfinished_marker_hits": [],
@@ -32,6 +32,6 @@
       "text": "We must not generalize the observed relationships to all cities, all bike-sharing systems, or current"
     }
   ],
-  "allowed_repository_url_token": "<INSERT_STABLE_GITHUB_REPOSITORY_URL>",
+  "allowed_repository_url_token": "https://github.com/Zhoujie-SONG/DS-A1-bike-sharing-audit",
   "visual_review": "See docs/qa_review.md; not inferred from programmatic pass."
 }
